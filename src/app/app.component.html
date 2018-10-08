@@ -1,0 +1,29 @@
+<!-- <input type="file" ng2FileSelect [uploader]="uploader" /> -->
+<input type="file" ng2FileSelect [uploader]="uploader"  />
+
+<table class="table">
+    <thead>
+        <tr>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of uploader.queue">
+            <td nowrap>
+                <button type="button" class="btn btn-success btn-xs"
+                        (click)="item.upload()" [disabled]="item.isReady || item.isUploading || item.isSuccess">
+                    <span class="glyphicon glyphicon-upload"></span> Upload
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <gallery [datasource]=images></gallery>
+            </td>
+        </tr>
+        <tr style="width: 100%; height: 50px; text-align: center">
+            <td nowrap >
+                <button style="height: 30px; width: 100px;"  type="button" (click)="getImageData()">Refresh</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
